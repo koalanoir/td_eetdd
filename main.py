@@ -15,8 +15,17 @@ class Machine:
         self._eauDisponible = True
         self._gobeletsDisponibles = True
         self._caféEnStock = True
+
+    def __init__(self):
+        self._nombreCafésServis = 0
+        self._argentEncaissé = 0
+        self._nombreCafésServis = 0
+        self._argentEncaissé = 0
+        self._eauDisponible = True
+        self._gobeletsDisponibles = True
+        self._caféEnStock = True
     def Insérer(self, somme):
-        if(somme == 0.4 & self._eauDisponible & self._gobeletsDisponibles & self._caféEnStock):
+        if(somme == 0.4 and self._eauDisponible and self._gobeletsDisponibles and self._caféEnStock):
             self._argentEncaissé += 0.4
             self._nombreCafésServis +=1
 
@@ -28,6 +37,12 @@ class Machine:
 
     def CouperEau(self):
         self._eauDisponible=False
+
+    def CouperCafe(self):
+        self._caféEnStock=False
+        
+    def PlusDeGobelet(self):
+        self._gobeletsDisponibles=False
         
 if __name__ == '__main__':
     machine=Machine()

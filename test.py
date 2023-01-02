@@ -1,7 +1,7 @@
 from main import *
 import unittest
 class MachineACafeTest(unittest.TestCase):
-    def test_coule(self):
+    def test_pas_d_argent(self):
         #ETANT DONNE une machine
         machine =Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
@@ -17,7 +17,7 @@ class MachineACafeTest(unittest.TestCase):
         # ET l'argent est rendu
         self.assertEqual(argentEncaisséInitial,  machine.GetArgentEncaissé())
     
-    def test_pas_d_argent(self):
+    def test_coule(self):
         #ETANT DONNE une machine
         machine = Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
