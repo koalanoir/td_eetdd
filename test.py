@@ -3,13 +3,13 @@ import unittest
 class MachineACafeTest(unittest.TestCase):
     def test_pas_d_argent(self):
         #ETANT DONNE une machine
-        machine =Machine()
+        machine =Machine(1,1)
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsuffisante = 0.39
 
         #QUAND on met moins de 40cts
-        machine.Insérer(sommeInsuffisante)
+        machine.Insérer(sommeInsuffisante,True)
 
         # ALORS aucun café ne coule
         self.assertEqual(nombreCaféInitiaux, machine.GetNombreCafésServis())
@@ -19,13 +19,13 @@ class MachineACafeTest(unittest.TestCase):
     
     def test_coule(self):
         #ETANT DONNE une machine
-        machine = Machine()
+        machine = Machine(1,1)
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
-        machine.Insérer(sommeInsérée)
+        machine.Insérer(sommeInsérée,False)
 
         #ALORS un café coule
         nombreCafésFinaux = machine.GetNombreCafésServis()

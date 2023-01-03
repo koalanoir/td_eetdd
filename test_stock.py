@@ -1,15 +1,16 @@
 from main import *
 import unittest
-class TestPenueries(unittest.TestCase):
+class TestStocks(unittest.TestCase):
     def test_sans_eau(self):
                #ETANT DONNE une machine
-        machine = Machine(1,1)
+        machine = Machine(1,5)
         machine.CouperEau()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
+        machine.Insérer(sommeInsérée)
         machine.Insérer(sommeInsérée)
 
         #ALORS un café coule
@@ -22,7 +23,7 @@ class TestPenueries(unittest.TestCase):
 
     def test_sans_cafe(self):
                #ETANT DONNE une machine
-        machine = Machine(1,1)
+        machine = Machine(1,5)
         machine.PlusDeGobelet()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
@@ -41,7 +42,7 @@ class TestPenueries(unittest.TestCase):
 
     def test_sans_gobelet(self):
         #ETANT DONNE une machine
-        machine = Machine(1,1)
+        machine = Machine(1,5)
         machine.PlusDeGobelet()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
