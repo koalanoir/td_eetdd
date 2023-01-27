@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
       run: pip install -- pywin32
 
     - name: Run Python unit tests
-      run: python3 -m unittest discover
+      run: py -m unittest discover
 
     - name: Verify that the Docker image for the action builds
       run: docker build . --file Dockerfile
@@ -41,4 +41,4 @@ jobs:
         echo "output-one = ${{ steps.integration.outputs.output-one }}"
         echo "output-two = ${{ steps.integration.outputs.output-two }}"
     - name: Verify integration test results
-      run: python3 -m unittest discover
+      run: py -m unittest discover
