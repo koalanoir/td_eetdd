@@ -21,7 +21,7 @@ jobs:
         python-version: '3.11'
     
     - name: install pip
-      run: pip install -- pywin32==227
+      run: pip install -- pywin32
 
     - name: Run Python unit tests
       run: python3 -m unittest discover
