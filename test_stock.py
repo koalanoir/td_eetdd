@@ -2,16 +2,15 @@ from main import *
 import unittest
 class TestStocks(unittest.TestCase):
     def test_sans_eau(self):
-               #ETANT DONNE une machine
-        machine = Machine(1,5)
-        machine.CouperEau()
+        #ETANT DONNE une machine
+        machine = Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
-        machine.Insérer(sommeInsérée)
-        machine.Insérer(sommeInsérée)
+        machine.Insérer(sommeInsérée,False)
+        machine.Insérer(sommeInsérée,False)
 
         #ALORS un café coule
         nombreCafésFinaux = machine.GetNombreCafésServis()
@@ -22,15 +21,14 @@ class TestStocks(unittest.TestCase):
         self.assertEqual(argentEncaisséInitial + sommeInsérée, argentEncaisséFinal)
 
     def test_sans_cafe(self):
-               #ETANT DONNE une machine
-        machine = Machine(1,5)
-        machine.PlusDeGobelet()
+        #ETANT DONNE une machine
+        machine = Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
-        machine.Insérer(sommeInsérée)
+        machine.Insérer(sommeInsérée,False)
 
         #ALORS un café coule
         nombreCafésFinaux = machine.GetNombreCafésServis()
@@ -42,14 +40,13 @@ class TestStocks(unittest.TestCase):
 
     def test_sans_gobelet(self):
         #ETANT DONNE une machine
-        machine = Machine(1,5)
-        machine.PlusDeGobelet()
+        machine = Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
-        machine.Insérer(sommeInsérée)
+        machine.Insérer(sommeInsérée,False)
 
         #ALORS un café coule
         nombreCafésFinaux = machine.GetNombreCafésServis()

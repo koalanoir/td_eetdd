@@ -3,7 +3,7 @@ import unittest
 class MachineACafeTest(unittest.TestCase):
     def test_pas_d_argent(self):
         #ETANT DONNE une machine
-        machine =Machine(1,1)
+        machine =Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsuffisante = 0.39
@@ -19,16 +19,17 @@ class MachineACafeTest(unittest.TestCase):
     
     def test_coule(self):
         #ETANT DONNE une machine
-        machine = Machine(1,1)
+        machine = Machine()
         nombreCaféInitiaux = machine.GetNombreCafésServis()
         argentEncaisséInitial = machine.GetArgentEncaissé()
         sommeInsérée = 0.40
         
         # QUAND on met 40cts
-        machine.Insérer(sommeInsérée,False)
+        machine.Insérer(sommeInsérée,True)
 
         #ALORS un café coule
         nombreCafésFinaux = machine.GetNombreCafésServis()
+        print(str(nombreCaféInitiaux)+" finaux : "+str(nombreCafésFinaux))
         self.assertEqual(nombreCaféInitiaux + 1, nombreCafésFinaux)
 
         #ET l'argent est encaissé
