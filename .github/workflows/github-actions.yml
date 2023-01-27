@@ -26,9 +26,6 @@ jobs:
     - name: Run Python unit tests
       run: py -m unittest discover
 
-    - name: Verify that the Docker image for the action builds
-      run: docker build . --file Dockerfile
-
     - name: Integration test
       id: integration
       uses: ./
